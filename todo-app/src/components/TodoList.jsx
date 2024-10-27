@@ -1,12 +1,19 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 
 
 import TodoCard from './TodoCard'
 
-const TodoList = () => {
+const TodoList = (props) => {
   return (
-    <div>
-      <TodoCard/>
-    </div>
+    <>
+      {props.todos.map((todo, todoIndex) => {
+        return (
+          <TodoCard key={todoIndex} todoIndex={todoIndex} {...props}/>
+        )
+      }
+      )}
+    </>
   )
 }
 

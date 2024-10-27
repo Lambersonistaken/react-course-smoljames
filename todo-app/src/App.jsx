@@ -9,8 +9,8 @@ function App() {
   const todos = [
     {id: 1, title: 'Learn React', completed: false},
     {id: 2, title: 'Learn JSX', completed: false},
-    {id: 3, title: 'Build a React App', completed: false},
-    {id: 4, title: 'Build a Todo App', completed: false},
+    {id: 3, title: 'Build a React App', completed: true},
+    {id: 4, title: 'Build a Todo App', completed: true},
   ]
 
 

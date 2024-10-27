@@ -1,13 +1,17 @@
+/* eslint-disable react/prop-types */
 
 
-const Tabs = () => {
-  const tabs = ['All', 'Active', 'Completed']
+const Tabs = ({todos}) => {
+  const tabs = ['All', 'Open', 'Completed']
 
 
   const tabsList = tabs.map((tab, index) => {
+
+    const numOfTasks = tab === "All" ? todos.length : tab === "Open" ? todos.filter(todo => !todo.completed).length : tab === "Completed" ? todos.filter(todo => todo.completed).length : 0
+
     return (
       <button className="tab-button" key={index}>
-        <h4>{tab} <span>(0)</span></h4>
+        <h4>{tab} <span>({numOfTasks})</span></h4>
       </button>
     )
   })
