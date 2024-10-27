@@ -27,6 +27,14 @@ function App() {
     let newTodoList = todos.filter((todo, todoIndex) => todoIndex !== index)
     setTodos(newTodoList)
   }
+
+  function handleToggleComplete(index){
+    let newTodoList = [...todos]
+    let completed = todos[index]
+    completed["completed"] = true
+    newTodoList[index] = completed
+    setTodos(newTodoList)
+  }
   
 
 
@@ -35,7 +43,7 @@ function App() {
     <>
       <Header todos={todos}/>
       <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} todos={todos}/>
-      <TodoList handleDeleteTodo={handleDeleteTodo} selectedTab={selectedTab} todos={todos}/>
+      <TodoList handleToggleComplete={handleToggleComplete} handleDeleteTodo={handleDeleteTodo} selectedTab={selectedTab} todos={todos}/>
       <TodoInput handleAddTodo={handleAddTodo}/>
     </>
   )
