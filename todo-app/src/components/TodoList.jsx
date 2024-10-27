@@ -5,11 +5,15 @@
 import TodoCard from './TodoCard'
 
 const TodoList = (props) => {
+
+  const tab = "Completed"
+
+  const filteredTodos = tab === "All" ? props.todos : tab === "Completed" ? props.todos.filter(todo => todo.completed) : props.todos.filter(todo => !todo.completed)
   return (
     <>
-      {props.todos.map((todo, todoIndex) => {
+      {filteredTodos.map((todo, todoIndex) => {
         return (
-          <TodoCard key={todoIndex} todoIndex={todoIndex} {...props}/>
+          <TodoCard key={todoIndex} todo={todo}/>
         )
       }
       )}

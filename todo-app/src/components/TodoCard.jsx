@@ -1,9 +1,8 @@
+/* eslint-disable react/prop-types */
 
 
 const TodoCard = (props) => {
-  const { todoIndex, todos } = props
-  const todo = todos[todoIndex]
-  console.log(todo)
+  const { todo } = props
   return (
     <div className="card todo-item">
       <p>{todo.title}</p>
