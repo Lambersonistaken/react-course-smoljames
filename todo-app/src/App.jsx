@@ -15,12 +15,18 @@ function App() {
     {id: 4, title: 'Build a Todo App', completed: true},
   ])
 
+  const [selectedTab, setSelectedTab] = useState("Open")
+
 
   function handleAddTodo(newTodo){
     const newTodoList = [...todos, {id: todos.length + 1, title: newTodo, completed: false}]
     setTodos(newTodoList)
   }
 
+  function handleDeleteTodo(index){
+    let newTodoList = todos.filter((todo, todoIndex) => todoIndex !== index)
+    setTodos(newTodoList)
+  }
   
 
 
@@ -28,9 +34,9 @@ function App() {
   return (
     <>
       <Header todos={todos}/>
-      <Tabs todos={todos}/>
-      <TodoList todos={todos}/>
-      <TodoInput/>
+      <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} todos={todos}/>
+      <TodoList handleDeleteTodo={handleDeleteTodo} selectedTab={selectedTab} todos={todos}/>
+      <TodoInput handleAddTodo={handleAddTodo}/>
     </>
   )
 }

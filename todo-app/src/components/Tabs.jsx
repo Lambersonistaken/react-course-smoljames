@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 
 
-const Tabs = ({todos}) => {
+const Tabs = ({todos, selectedTab, setSelectedTab}) => {
   const tabs = ['All', 'Open', 'Completed']
 
 
@@ -11,7 +11,9 @@ const Tabs = ({todos}) => {
     const numOfTasks = tab === "All" ? todos.length : tab === "Open" ? todos.filter(todo => !todo.completed).length : tab === "Completed" ? todos.filter(todo => todo.completed).length : 0
 
     return (
-      <button className="tab-button" key={index}>
+      <button onClick={() => {
+        setSelectedTab(tab)
+      }} className={"tab-button" + (tab === selectedTab ? "tab-selected" : "")} key={index}>
         <h4>{tab} <span>({numOfTasks})</span></h4>
       </button>
     )
@@ -21,6 +23,7 @@ const Tabs = ({todos}) => {
   return (
     <nav className="tab-container" style={{textAlign:"left"}}>
       {tabsList}
+      <hr style={{marginTop: "1rem"}} />
     </nav>
   )
 }
