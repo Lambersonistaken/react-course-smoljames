@@ -16,6 +16,11 @@ function App() {
   ])
 
 
+  function handleAddTodo(newTodo){
+    const newTodoList = [...todos, {id: todos.length + 1, title: newTodo, completed: false}]
+    setTodos(newTodoList)
+  }
+
   
 
 
