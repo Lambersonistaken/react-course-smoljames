@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeJS Beginner</title>
+</head>
+
+<body>
+    <h2>THIS IS MY BODY</h2>
+
+    <button id="nice">
+        SEND
+    </button>
+
+</body>
+
+<script>
+    const btn = document.getElementById('nice');
+
+    async function send() {
+        const response = await fetch('http://localhost:4999/api/info', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                information: "This is from web client"
+            })
+        });
+        const data = await response.json();
+        console.log(data);
+    }
+    btn.addEventListener('click', send);
+</script>
+
+</html>

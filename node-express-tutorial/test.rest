@@ -2,4 +2,15 @@
 GET http://localhost:4999
 
 ###
-DELETE http://localhost:4999
+DELETE http://localhost:4999/8
+
+###
+POST http://localhost:4999/api/info
+Content-Type: application/json
+
+{
+  "information": "This is a test"
+}
+
+###
+PUT http://localhost:4999/api/?word=emir&banana=yellow
