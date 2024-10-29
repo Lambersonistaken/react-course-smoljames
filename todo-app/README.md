@@ -30,7 +30,7 @@ To set up and run this Todo App locally, follow these steps:
    The app will be available at `http://localhost:3000`.
 
 ## Screenshot
-![Screenshot](path/to/todo-app-screenshot.png)
+![Screenshot](./ss.png)
 
 
 ## Technologies Used
